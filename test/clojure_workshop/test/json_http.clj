@@ -1,4 +1,4 @@
-(ns clojure_workshop.test.json-http
+(ns clojure-workshop.test.json-http
   (:require [clojure.contrib.io :as io]
             [clojure.contrib.http.agent :as http]
             [clojure.contrib.json :as json]
@@ -34,4 +34,3 @@
 (http/http-agent
   "http://search.twitter.com/search.json?q=usa&result_type=recent&count=10"
   :handler agent-handler)
-
