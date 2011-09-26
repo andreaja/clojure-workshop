@@ -9,12 +9,12 @@
 (defn print-json [jsn]
   (json/pprint-json jsn))
 
-
 (defn- agent-handler [agt]
   (-> agt http/stream io/reader json/read-json))
 
-(defn search-twitter [] (agent-handler
-                          (http/http-agent twitter-search-url)))
+(defn search-twitter []
+  (agent-handler
+    (http/http-agent twitter-search-url)))
 
 (defn print-fn-result [f json-result-fn]
   (let [res (f (json-result-fn))]
@@ -30,6 +30,7 @@
   (clojure.string/join "\n"
     (map :text (:results search-result))))
 
+;; Hint hent results og deretter text, mappe så innhold av collection til kun å være encoding (iso_language_code).
 (defn unique-set-of-tweet-encodings [search-result]
   (set (map :iso_language_code (:results search-result))))
 
@@ -45,5 +46,4 @@
 (println (map :text (filter #(= (:from_user %) "world_finance") (:results (slurp-file-json )))))
 
 ; Skriv ut tweets fra som svarer/sender til noen
-
 (println (map :text (filter #(not= nil (:to_user %)) (:results (slurp-file-json )))))
