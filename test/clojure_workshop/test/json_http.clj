@@ -4,6 +4,8 @@
             [clojure.data.json :as json]
             [clojure.string]))
 
+(def twitter-search-url "http://search.twitter.com/search.json?q=usa&result_type=recent&count=10")
+
 (defn print-json [jsn]
   (json/pprint-json jsn))
 
@@ -11,11 +13,14 @@
 (defn- agent-handler [agt]
   (-> agt http/stream io/reader json/read-json))
 
-(defn print-fn-result [f]
-  (println (f (agent-handler
-                (http/http-agent "http://search.twitter.com/search.json?q=usa&result_type=recent&count=10")))))
+(defn search-twitter [] (agent-handler
+                          (http/http-agent twitter-search-url)))
 
-#_
+(defn print-fn-result [f json-result-fn]
+  (let [res (f (json-result-fn))]
+    (println res)
+    res))
+
 (defn slurp-file-json []
   (json/read-json
     (slurp "twitter-java-search-json.txt")))
@@ -29,7 +34,16 @@
   (set (map :iso_language_code (:results search-result))))
 
 
-(print-fn-result text-from-twitter-search)
-(print-fn-result unique-set-of-tweet-encodings)
+(print-fn-result text-from-twitter-search search-twitter)
+(print-fn-result unique-set-of-tweet-encodings search-twitter)
 
-;(println (slurp-file-json))
+(if (= 9 (count (print-fn-result unique-set-of-tweet-encodings slurp-file-json)))
+  (println "You are a Clojure master")
+  (println "You need to practice some more"))
+
+; Skriv ut tweet(s) fra "@world_finance"
+(println (map :text (filter #(= (:from_user %) "world_finance") (:results (slurp-file-json )))))
+
+; Skriv ut tweets fra som svarer/sender til noen
+
+(println (map :text (filter #(not= nil (:to_user %)) (:results (slurp-file-json )))))
