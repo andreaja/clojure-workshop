@@ -29,11 +29,11 @@
 
 (deftest hvordan-telle-ting
   (are [x y] (= x y)
-       5 (___ '(1 2 3 4 5))
-       4 (___ [1 2 3 4])
-       10 (___ (range 10))
-       4 (___ {:a 1, :b 2, :c 3, :d 4})
-       8 (___ "En banan")))
+    __ (count '(1 2 3 4 5))
+    __ (count [1 2 3 4])
+    __ (count (range 10))
+    __ (count {:a 42, :b 1337, :c 3.14, :d 1701})
+    __ (count "En banan")))
 
 (deftest how-to-find-length-of-something
   (let [f ___]
