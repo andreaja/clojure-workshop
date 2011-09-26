@@ -33,7 +33,7 @@
 (defn unique-set-of-tweet-encodings [search-result]
   (set '()))
 
-
+(comment
 (print-fn-result text-from-twitter-search search-twitter)
 (print-fn-result unique-set-of-tweet-encodings search-twitter)
 
@@ -46,3 +46,4 @@
 
 ; Skriv ut tweets fra som svarer/sender til noen
 (println (map :text (filter #(not= nil (:to_user %)) (:results (slurp-file-json )))))
+)
