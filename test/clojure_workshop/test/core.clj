@@ -15,7 +15,7 @@
   (is (= [1 2 3] '(1 2 3)))
   ;; Bruk list function
   (is (= [1 2 3] (list 1 2 3)))
-  ;; Bruk vec function
+  ;; Bruk vector function
   (is (= [1 2 3] (vector 1 2 3))))
 
 (deftest use-conjoin
