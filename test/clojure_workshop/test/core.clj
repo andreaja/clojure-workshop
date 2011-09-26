@@ -35,6 +35,13 @@
     __ (count {:a 42, :b 1337, :c 3.14, :d 1701})
     __ (count "En banan")))
 
+
+
+(deftest hvordan-filtrere-ut-det-du-vil-ha
+  (are [x y] (= x y)
+    (filter odd? '(1 2 3 4 5)) '(1 3 5)
+    (filter even? '(1 2 3 4 5)) '(2 4)))
+
 (deftest how-to-find-length-of-something
   (let [f ___]
     (are [x y] (= x y)
@@ -43,7 +50,6 @@
       (f [[1 2] [3 4] [5 6]]) 3
       (f '(13)) 1
       (f '(:a :b :c))) 3))
-
 
 (deftest hvordan-filtrere-ut-det-du-vil-ha
   (are [x y] (= x y)
