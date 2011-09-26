@@ -27,12 +27,11 @@
 
 ;; Hint hent results og deretter text. For fin formattering sjekk ut clojure/string.
 (defn text-from-twitter-search [search-result]
-  (clojure.string/join "\n"
-    (map :text (:results search-result))))
+  (print-json search-result))
 
 ;; Hint hent results og deretter text, mappe så innhold av collection til kun å være encoding (iso_language_code).
 (defn unique-set-of-tweet-encodings [search-result]
-  (set (map :iso_language_code (:results search-result))))
+  (set '()))
 
 
 (print-fn-result text-from-twitter-search search-twitter)
