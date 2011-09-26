@@ -15,7 +15,7 @@
   (is (= [1 2 3] __))
   ;; Bruk list function
   (is (= [1 2 3] __))
-  ;; Bruk vec function
+  ;; Bruk vector function
   (is (= [1 2 3] __)))
 
 (deftest use-conjoin
