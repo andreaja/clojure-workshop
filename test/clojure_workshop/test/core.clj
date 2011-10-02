@@ -9,13 +9,13 @@
   (is (= 1 1))
   (is (true? __))
   (is (= (str \a \b \c) __))
-  ;; Bruk vector literal
+  ;; Use vector literal
   (is (= [1 2 3] __))
-  ;; Bruk list literal
+  ;; Use list literal
   (is (= [1 2 3] __))
-  ;; Bruk list function
+  ;; Use list function
   (is (= [1 2 3] __))
-  ;; Bruk vector function
+  ;; Use vector function
   (is (= [1 2 3] __)))
 
 (deftest use-conjoin
@@ -25,9 +25,9 @@
     (conj '(2 1) 3 4) __
     (conj #{2 1} 3 4) __))
 
-;; Bruk (doc conj) for info
+;; Use (doc conj) for info
 
-(deftest hvordan-telle-ting
+(deftest how-to-count-stuff
   (are [x y] (= x y)
     __ (count '(1 2 3 4 5))
     __ (count [1 2 3 4])
@@ -35,9 +35,7 @@
     __ (count {:a 42, :b 1337, :c 3.14, :d 1701})
     __ (count "En banan")))
 
-
-
-(deftest hvordan-filtrere-ut-det-du-vil-ha
+(deftest how-to-filter-out-the-stuff-you-want
   (are [x y] (= x y)
     (filter odd? '(1 2 3 4 5)) '(1 3 5)
     (filter even? '(1 2 3 4 5)) '(2 4)))
