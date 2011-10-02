@@ -35,8 +35,6 @@
        4 (count {:a 1, :b 2, :c 3, :d 4})
        8 (count "En banan")))
 
-
-
 (deftest hvordan-filtrere-ut-det-du-vil-ha
   (are [x y] (= x y)
     (filter odd? '(1 2 3 4 5)) '(1 3 5)
@@ -50,5 +48,30 @@
       (f [[1 2] [3 4] [5 6]]) 3
       (f '(13)) 1
       (f '(:a :b :c))) 3))
+
+
+(deftest using-if
+  (are [x y] (= x y)
+       (if (> 1 0)
+         true
+         false)
+       true
+
+       (if (> 3 2 1)
+         true
+         false)
+       true
+
+       (if (> 3 2 3 1)
+         true
+         false)
+       false))
+
+(deftest dealing-with-lists
+  (are [x y] (= x y)
+       (first [1 2 3 4])  1
+       (last [1 2 3 4 5]) 5
+       (take 2 [1 2 3 4]) [1 2]
+       ))
 
 (run-tests)
