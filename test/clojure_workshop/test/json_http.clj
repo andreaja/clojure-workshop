@@ -1,6 +1,6 @@
 (ns clojure-workshop.test.json-http
   (:require [clojure.java.io :as io]
-            [clojure.contrib.http.agent :as http]
+            [clj-http.client :as client]
             [clojure.data.json :as json]
             [clojure.string]))
 
@@ -9,12 +9,8 @@
 (defn print-json [jsn]
   (json/pprint-json jsn))
 
-(defn- agent-handler [agt]
-  (-> agt http/stream io/reader json/read-json))
-
 (defn search-twitter []
-  (agent-handler
-    (http/http-agent twitter-search-url)))
+  (-> twitter-search-url client/get :body json/read-json))
 
 (defn print-fn-result [f json-result-fn]
   (let [res (f (json-result-fn))]
