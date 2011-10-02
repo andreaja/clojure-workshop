@@ -5,6 +5,7 @@
 (defn __ [& args] false)
 (def ___ identity)
 
+
 (deftest very-basic-types
   (is (= 1 1))
   (is (true? __))
@@ -18,6 +19,7 @@
   ;; Use vector function
   (is (= [1 2 3] __)))
 
+
 (deftest use-conjoin
   (are [x y] (= x y)
     (conj [1] 2) __
@@ -27,6 +29,7 @@
 
 ;; Use (doc conj) for info
 
+
 (deftest how-to-count-stuff
   (are [x y] (= x y)
     __ (count '(1 2 3 4 5))
@@ -35,10 +38,6 @@
     __ (count {:a 42, :b 1337, :c 3.14, :d 1701})
     __ (count "En banan")))
 
-(deftest how-to-filter-out-the-stuff-you-want
-  (are [x y] (= x y)
-    (filter odd? '(1 2 3 4 5)) '(1 3 5)
-    (filter even? '(1 2 3 4 5)) '(2 4)))
 
 (deftest how-to-find-length-of-something
   (let [f ___]
@@ -49,23 +48,21 @@
       (f '(13)) 1
       (f '(:a :b :c))) 3))
 
+
 (deftest using-if
   (are [x y] (= x y)
        (if (> 1 0)
          true
          false)
        ___
-
        (if (> 3 2 1)
          true
          false)
        ___
-
        (if (> 3 2 3 1)
          true
          false)
        ___))
-
 
 (deftest dealing-with-lists
   (are [x y] (= x y)
@@ -102,7 +99,5 @@
        (let [double __]
          (map double '(1 2 3)) '(2 4 6)
          (map double '(5 10 15)) '(10 20 30))))
-
-
 
 (run-tests)
