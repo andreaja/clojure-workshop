@@ -49,9 +49,60 @@
       (f '(13)) 1
       (f '(:a :b :c))) 3))
 
-(deftest hvordan-filtrere-ut-det-du-vil-ha
+(deftest using-if
+  (are [x y] (= x y)
+       (if (> 1 0)
+         true
+         false)
+       ___
+
+       (if (> 3 2 1)
+         true
+         false)
+       ___
+
+       (if (> 3 2 3 1)
+         true
+         false)
+       ___))
+
+
+(deftest dealing-with-lists
+  (are [x y] (= x y)
+       (first '(1 2 3 4))  __
+       (last '(1 2 3 4 5)) __
+       (take 2 '(1 2 3 4)) __))
+
+
+(deftest operating-on-lists
+  (are [x y] (= x y)
+       (apply + [1 2 3 4]) ___
+       (apply - [4 3 2 1]) ___
+       (apply * [1 2 3 4]) ___
+       ))
+
+
+
+(deftest how-to-filter-out-the-stuff-you-want
   (are [x y] (= x y)
        (filter odd? '(1 2 3 4 5)) __
        (filter even? '(1 2 3 4 5)) __))
+
+(deftest define-a-function-that-checks-length
+   (are [x y] (= x y)
+       (let [long? __]
+         (long? "long string" 5) true
+         (long? "short" 5) false
+         (long? nil 2) false
+         )))
+
+
+(deftest use-map-to-manipulate-all-elements-in-a-sequence
+  (are [x y] (= x y)
+       (let [double __]
+         (map double '(1 2 3)) '(2 4 6)
+         (map double '(5 10 15)) '(10 20 30))))
+
+
 
 (run-tests)
