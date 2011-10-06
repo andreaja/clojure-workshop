@@ -6,6 +6,10 @@
 
 (def twitter-search-url "http://search.twitter.com/search.json?q=usa&result_type=recent&count=10")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Predefined functions. Check below for tasks
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defn print-json
   "Prints json in a 'pretty' way to *out*"
   [jsn] (json/pprint-json jsn))
@@ -27,6 +31,10 @@
   [] (json/read-json
     (slurp "twitter-java-search-json.txt")))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This is where you should fill in your code.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Hint: get results and then the text. If you want nice formatting check out clojure/string.
 (defn text-from-twitter-search [search-result]
