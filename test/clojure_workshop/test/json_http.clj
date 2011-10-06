@@ -38,7 +38,7 @@
 
 ;; Hint: get results and then the text. If you want nice formatting check out clojure/string.
 (defn text-from-twitter-search [search-result]
-  (print-json search-result))
+  search-result)
 
 
 ;; Hint: get the results, then map the contents so the collection will only contain encoding (iso_language_code).
