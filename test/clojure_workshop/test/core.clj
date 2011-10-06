@@ -6,6 +6,7 @@
 (defn __ [& args] false)
 (def ___ identity)
 
+(comment
 
 (deftest very-basic-types
   (is (= 1 1))
@@ -100,5 +101,7 @@
        (let [double __]
          (map double '(1 2 3)) '(2 4 6)
          (map double '(5 10 15)) '(10 20 30))))
+
+)
 
 (run-tests)
