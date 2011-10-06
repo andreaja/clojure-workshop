@@ -1,5 +1,4 @@
 (ns clojure-workshop.test.core
-  (:use [clojure-workshop.core])
   (:use [clojure.test]))
 
 ; Placeholders do not touch.
@@ -13,7 +12,7 @@
   (is (true? __))
   (is (= (str \a \b \c) __))
   ;; Use vector literal
-  (is (= [1 2 3] __))
+  (is (= '(1 2 3) __))
   ;; Use list literal
   (is (= [1 2 3] __))
   ;; Use list function
