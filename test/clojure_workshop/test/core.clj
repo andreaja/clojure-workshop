@@ -87,8 +87,8 @@
        (filter even? '(1 2 3 4 5)) __))
 
 (deftest define-a-function-that-checks-length
-   (are [x y] (= x y)
-       (let [long? __]
+  (let [long? __]
+    (are [x y] (= x y)
          (long? "long string" 5) true
          (long? "short" 5) false
          (long? nil 2) false
