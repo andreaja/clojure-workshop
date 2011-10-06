@@ -95,7 +95,7 @@
          )))
 
 
-(deftest use-map-to-manipulate-all-elements-in-a-sequence
+(deftest use-map-to-double-all-numbers-in-a-sequence
   (let [double __]
     (are [x y] (= x y)
         (map double '(1 2 3)) '(2 4 6)
