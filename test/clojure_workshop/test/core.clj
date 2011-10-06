@@ -88,8 +88,8 @@
 
 
 (deftest define-a-function-that-checks-length
-  (are [x y] (= x y)
-       (let [long? (fn [str len] (> (count str) len))]
+  (let [long? (fn [str len] (> (count str) len))]
+    (are [x y] (= x y)
          (long? "long string" 5) true
          (long? "short" 5) false
          (long? nil 2) false
