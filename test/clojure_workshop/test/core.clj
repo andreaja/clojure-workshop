@@ -97,8 +97,8 @@
 
 
 (deftest use-map-to-manipulate-all-elements-in-a-sequence
-  (are [x y] (= x y)
-       (let [double (fn [i] (* 2 i))]
+  (let [double (fn [i] (* 2 i))]
+    (are [x y] (= x y)
          (map double '(1 2 3)) '(2 4 6)
          (map double '(5 10 15)) '(10 20 30))))
 
