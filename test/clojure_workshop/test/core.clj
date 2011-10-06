@@ -1,5 +1,4 @@
 (ns clojure-workshop.test.core
-  (:use [clojure-workshop.core])
   (:use [clojure.test]))
 
 ; Placeholders do not touch.

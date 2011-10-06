@@ -1,1 +1,0 @@
-(ns clojure-workshop.core)
