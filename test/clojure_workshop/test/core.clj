@@ -2,6 +2,7 @@
   (:use [clojure-workshop.core])
   (:use [clojure.test]))
 
+; Placeholders do not touch.
 (defn __ [& args] false)
 (def ___ identity)
 
