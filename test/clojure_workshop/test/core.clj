@@ -12,7 +12,7 @@
   (is (true? true))
   (is (= (str \a \b \c) "abc"))
   ;; Use vector literal
-  (is (= [1 2 3] [1 2 3]))
+  (is (= '(1 2 3) [1 2 3]))
   ;; Use list literal
   (is (= [1 2 3] '(1 2 3)))
   ;; Use list function
