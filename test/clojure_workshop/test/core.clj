@@ -86,7 +86,7 @@
        (filter odd? '(1 2 3 4 5)) __
        (filter even? '(1 2 3 4 5)) __))
 
-(deftest define-a-function-that-checks-length
+(deftest define-a-function-that-checks-if-something-is-longer-than
   (let [long? __]
     (are [x y] (= x y)
          (long? "long string" 5) true
@@ -96,10 +96,10 @@
 
 
 (deftest use-map-to-double-all-numbers-in-a-sequence
-  (are [x y] (= x y)
-       (let [double __]
-         (map double '(1 2 3)) '(2 4 6)
-         (map double '(5 10 15)) '(10 20 30))))
+  (let [double __]
+    (are [x y] (= x y)
+        (map double '(1 2 3)) '(2 4 6)
+        (map double '(5 10 15)) '(10 20 30))))
 
 )
 
