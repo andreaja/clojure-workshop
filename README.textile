@@ -1,0 +1,5 @@
+h3. Clojure workshop tasks
+
+These are the programming tasks used for teaching Clojure to students in Trondheim. On branch master they are unsolved, on solutions you will find the solutions.
+
+Slides used to present Clojure can be found on "slideshare":http://www.slideshare.net/stoyle/clojure-workshop.
